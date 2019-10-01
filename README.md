@@ -16,7 +16,7 @@ Indicator built and usable in TradingView, focused only for easy visualization o
 
 - Access the [TradingView Script Link](https://br.tradingview.com/script/PyzYltq6/).
 - Scroll down until you find the "BigMat Trender" code.
-- Right side of the title "BigMat" select the star to favorite the script.
+- Right side of the title "BIGMAT TRENDER" select the star to favorite the script.
 - Now it's on your scripts library! Go back to a chart...
 - Press "/" to open scripts and indicators window.
 - Go to "Favorites" and select "Trender".

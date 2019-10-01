@@ -23,7 +23,7 @@ Indicator built and usable in TradingView, focused only for easy visualization o
 - **Voilà!**
 
 ## Disclaimer
-This tool is for educational purposes only and was created only to show how to code in Pine.
+This tool is for educational purposes only and was created to show how to code in Pine.
 **Don't use as a financial guide.**
 
 I was inspired by works such as: 

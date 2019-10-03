@@ -1,0 +1,261 @@
+//@version=2
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                 //                                                             //
+//██████╗ ██╗ ██████╗ ███╗   ███╗ █████╗ ████████╗ // ████████╗██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗  //
+//██╔══██╗██║██╔════╝ ████╗ ████║██╔══██╗╚══██╔══╝ // ╚══██╔══╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗ //
+//██████╔╝██║██║  ███╗██╔████╔██║███████║   ██║    //    ██║   ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝ //
+//██╔══██╗██║██║   ██║██║╚██╔╝██║██╔══██║   ██║    //    ██║   ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗ //
+//██████╔╝██║╚██████╔╝██║ ╚═╝ ██║██║  ██║   ██║    //    ██║   ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║ //
+//╚═════╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    //    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝ //
+//                                                 //                                                             //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                     Totally Open Source, built by BigMat. I was inspired by works such as:                     //  
+//                                     "TrendRider" by "TradeCiety", Rolf S.                                      //  
+//                            "Setup Tabajara" by "Ogro de Wall Street", André Machado                            //  
+
+study(title = "Trender", shorttitle = "Trender", overlay = true)
+
+//                                          ███████╗███╗   ███╗ █████╗                                            //   
+//                                          ██╔════╝████╗ ████║██╔══██╗                                           //  
+//                                          █████╗  ██╔████╔██║███████║                                           //  
+//                                          ██╔══╝  ██║╚██╔╝██║██╔══██║                                           // 
+//                                          ███████╗██║ ╚═╝ ██║██║  ██║                                           //  
+//                                          ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝                                           //  
+// INPUT EMA 1
+ema_background_1 = input(true, title = "Show EMA background color.")
+show_ema_1 = input(false, title = "Show EMA.")
+// PLOTTED EMA 1
+per_ema1 = input(27, minval = 1, title = "EMA Period")
+src_ema1 = input(close, title = "Source")
+ema1 = ema(src_ema1, per_ema1)
+
+ema_Color_1 = ema1 > ema1[1] and close > ema1 ? green : ema1 < ema1[1] and close < ema1 ? red : yellow
+plot( show_ema_1 ? ema1 : na, color = ema_Color_1, style = line, title = "EMA 1", linewidth = 1)
+
+// INPUT EMA 2
+show_ema_2 = input(false, title = "Show EMA 2.")
+// PLOTTED EMA 2
+per_ema2 = input(9, minval = 1, title = "EMA 2 Period")
+src_ema2 = input(close, title = "Source")
+ema2 = ema(src_ema2, per_ema2)
+
+ema_Color_2 = ema2 > ema2[1] and close > ema2 ? green : ema2 < ema2[1] and close < ema2 ? red : yellow
+plot( show_ema_2 ? ema2 : na, color = ema_Color_2, style = line, title = "EMA 2", linewidth = 1)
+
+// INPUT EMA 3
+show_ema_3 = input(false, title = "Show EMA 3.")
+// PLOTTED EMA 3
+per_ema3 = input(200, minval = 1, title = "EMA 3 Period")
+src_ema3 = input(close, title = "Source")
+ema3 = ema(src_ema3, per_ema3)
+
+ema_Color_3 = ema3 > ema3[1] and close > ema3 ? green : ema3 < ema3[1] and close < ema3 ? red : yellow
+plot( show_ema_3 ? ema3 : na, color = ema_Color_3, style = line, title = "EMA 3", linewidth = 1)
+
+//                                          ███████╗███╗   ███╗ █████╗                                            //  
+//                                          ██╔════╝████╗ ████║██╔══██╗                                           //  
+//                                          ███████╗██╔████╔██║███████║                                           //  
+//                                          ╚════██║██║╚██╔╝██║██╔══██║                                           //  
+//                                          ███████║██║ ╚═╝ ██║██║  ██║                                           //  
+//                                          ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝                                           //  
+// INPUT SMA 1
+sma_background_1 = input(false, title = "Show SMA background color.") 
+show_sma_1 = input(true, title = "Show SMA.")
+// PLOTTED SMA 1
+per_sma1 = input(20, minval = 1, title = "SMA Period")
+src_sma1 = input(close, title = "Source")
+sma1 = sma(src_sma1, per_sma1)
+
+sma_Color_1 = sma1 > sma1[1] and close > sma1 ? green : sma1 < sma1[1] and close < sma1 ? red : yellow
+plot( show_sma_1 ? sma1 : na, color = sma_Color_1, style = line, title = "SMA 1", linewidth = 1)
+
+// INPUT SMA 2
+show_sma_2 = input(false, title = "Show SMA 2.")
+// PLOTTED SMA 2
+per_sma2 = input(9, minval = 1, title = "SMA 2 Period")
+src_sma2 = input(close, title = "Source")
+sma2 = sma(src_sma2, per_sma2)
+
+sma_Color_2 = sma2 > sma2[1] and close > sma2 ? green : sma2 < sma2[1] and close < sma2 ? red : yellow
+plot( show_sma_2 ? sma2 : na, color = sma_Color_2, style = line, title = "SMA 2", linewidth = 1)
+
+// INPUT SMA 3
+show_sma_3 = input(false, title = "Show SMA 3.")
+// PLOTTED SMA 3
+per_sma_3 = input(200, minval = 1, title = "SMA 3 Period")
+src_sma_3 = input(close, title = "Source")
+sma3 = sma(src_sma_3, per_sma_3)
+
+sma_Color_3 = sma3 > sma3[1] and close > sma3 ? green : sma3 < sma3[1] and close < sma3 ? red : yellow
+plot( show_sma_3 ? sma3 : na, color = sma_Color_3, style = line, title = "SMA 23", linewidth = 1)
+
+//                                          ██╗  ██╗███╗   ███╗ █████╗                                            //  
+//                                          ██║  ██║████╗ ████║██╔══██╗                                           //  
+//                                          ███████║██╔████╔██║███████║                                           //  
+//                                          ██╔══██║██║╚██╔╝██║██╔══██║                                           //  
+//                                          ██║  ██║██║ ╚═╝ ██║██║  ██║                                           //  
+//                                          ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝                                           //  
+// CONSOLIDATION // Based on HullMA to filter consolidations.
+// INPUT HULLMA
+highlight_consolidations = input(true, title = "Highlight consolidations.")
+plot_hma = input(false, title = "Show HullMA highlighter.")
+// HULLMA FORMULA
+per_hma = input(title = "HullMA", type = integer, defval = 7 , minval = 1) 
+src_hma = input(close, title = "Source")
+hma_formula1 = 2*wma(src_hma, round(per_hma/2)) 
+hma_formula2 = wma(src_hma, per_hma)
+product_1 = hma_formula1-hma_formula2, sqn = round(sqrt(per_hma)) 
+hma_formula3 = 2*wma(src_hma[2], round(per_hma/2)) 
+hma_formula4 = wma(src_hma[2], per_hma) 
+product_2 = hma_formula3-hma_formula4, sqn1 = round(sqrt(per_hma))
+// COLOR
+hma_1 = wma(product_1,sqn)    
+hma_2 = wma(product_2,sqn)
+color_hma = hma_1 > hma_2 ? green : hma_1 < hma_2 ? red : hma_1 == hma_2 ? yellow : na
+// COLOR
+// PLOTED HULLMA
+fill(plot( plot_hma ? hma_1 : na, color = color_hma, linewidth = 1, transp = 75), plot( plot_hma ? hma_2 : na, color = color_hma, linewidth = 1, transp = 75), color = color_hma, transp = 45)
+a1 = plot( plot_hma ? hma_1 : na, color = color_hma, style = line, transp = 45), a2 = plot( plot_hma ? hma_2 : na, color = color_hma, style = line, transp = 45)
+
+//                                    ██████╗ ██████╗ ██╗      ██████╗ ██████╗                                    //  
+//                                   ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗                                   //  
+//                                   ██║     ██║   ██║██║     ██║   ██║██████╔╝                                   //  
+//                                   ██║     ██║   ██║██║     ██║   ██║██╔══██╗                                   //  
+//                                   ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║                                   //  
+//                                    ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝                                   //  
+//COLOR BACKGROUND
+//EMA 1 Background
+ema1_green_bg = if ema_background_1 == true
+    if sma_background_1 == true
+        ema1 > ema1[1] and sma1>sma1[1]
+    else
+        if sma_background_1 == false
+            ema1 > ema1[1]            
+ema1_red_bg = if ema_background_1 == true
+    if sma_background_1 == true
+        ema1 < ema1[1] and sma1 < sma1[1]
+    else
+        if sma_background_1 == false
+            ema1 < ema1[1]
+
+bgcolor(ema1_green_bg ? green : na, title = "EMA Upward")
+bgcolor(ema1_red_bg ? red : na, title = "EMA Downward")
+
+//SMA 1 Background  
+sma1_green_bg = if sma_background_1 == true 
+    if ema_background_1 == true
+        sma1>sma1[1] and ema1 > ema1[1]
+    else
+        if ema_background_1 == false
+            sma1 > sma1[1]
+sma1_red_bg = if sma_background_1 == true
+    if ema_background_1 == true
+        sma1 < sma1[1] and ema1 < ema1[1]
+    else
+        if ema_background_1 == false
+            sma1 < sma1[1]
+
+bgcolor(sma1_green_bg ? green : na, title = "SMA Upward")
+bgcolor(sma1_red_bg ? red : na, title = "SMA Downward")
+
+// FILTER CONSOLIDATION 
+ema1_greenfilter_bg = if ema_background_1 == true
+    if sma_background_1 == true
+        if highlight_consolidations == true
+            ema1 > ema1[1] and sma1 > sma1[1] and hma_1 < hma_2
+    else
+        if ema_background_1 == true
+            if sma_background_1 == false
+                if highlight_consolidations == true
+                    ema1 > ema1[1] and hma_1 < hma_2             
+ema1_redfilter_bg = if ema_background_1 == true
+    if sma_background_1 == true
+        if highlight_consolidations == true
+            ema1 < ema1[1] and sma1 < sma1[1] and hma_1 > hma_2
+    else
+        if ema_background_1 == true
+            if sma_background_1 == false
+                if highlight_consolidations == true
+                    ema1 < ema1[1] and hma_1 > hma_2
+
+plotshape(ema1_greenfilter_bg ? ema1_greenfilter_bg : na, title = "EMA Filter Long",style = shape.square,location = location.abovebar, size=size.auto, color = yellow, transp = 0)
+plotshape(ema1_greenfilter_bg ? ema1_greenfilter_bg : na, title = "EMA Filter Long",style = shape.square,location = location.belowbar, size=size.auto, color = yellow, transp = 0)
+plotshape(ema1_redfilter_bg ? ema1_redfilter_bg : na, title = "EMA Filter Short", style = shape.square,location = location.abovebar, size=size.auto, color = yellow, transp = 0)
+plotshape(ema1_redfilter_bg ? ema1_redfilter_bg : na, title = "EMA Filter Short", style = shape.square,location = location.belowbar, size=size.auto, color = yellow, transp = 0)
+
+sma1_greenfilter_bg = if sma_background_1 == true 
+    if ema_background_1 == true
+        if highlight_consolidations == true
+            sma1>sma1[1] and ema1 > ema1[1] and hma_1 < hma_2
+    else
+        if sma_background_1 == true
+            if ema_background_1 == false
+                if highlight_consolidations == true
+                    sma1 > sma1[1] and hma_1 < hma_2
+sma1_redfilter_bg = if sma_background_1 == true
+    if ema_background_1 == true
+        if highlight_consolidations == true
+            sma1 < sma1[1] and ema1 < ema1[1] and hma_1 > hma_2
+    else
+        if sma_background_1 == true
+            if ema_background_1 == false
+                if highlight_consolidations == true
+                    sma1 < sma1[1] and hma_1 > hma_2
+
+plotshape(sma1_greenfilter_bg ? sma1_greenfilter_bg : na, title = "SMA Filter Long",style = shape.square,location = location.abovebar, size=size.auto, color = yellow, transp = 0)
+plotshape(sma1_greenfilter_bg ? sma1_greenfilter_bg : na, title = "SMA Filter Long",style = shape.square,location = location.belowbar, size=size.auto, color = yellow, transp = 0)
+plotshape(sma1_redfilter_bg ? sma1_redfilter_bg : na, title = "SMA Filter Short", style = shape.square,location = location.abovebar, size=size.auto, color = yellow, transp = 0)
+plotshape(sma1_redfilter_bg ? sma1_redfilter_bg : na, title = "SMA Filter Short", style = shape.square,location = location.belowbar, size=size.auto, color = yellow, transp = 0)       
+
+//                             ██╗   ██╗ ██████╗ ██╗     ██╗   ██╗███╗   ███╗███████╗                             //  
+//                             ██║   ██║██╔═══██╗██║     ██║   ██║████╗ ████║██╔════╝                             //  
+//                             ██║   ██║██║   ██║██║     ██║   ██║██╔████╔██║█████╗                               //  
+//                             ╚██╗ ██╔╝██║   ██║██║     ██║   ██║██║╚██╔╝██║██╔══╝                               //  
+//                              ╚████╔╝ ╚██████╔╝███████╗╚██████╔╝██║ ╚═╝ ██║███████╗                             //  
+//                               ╚═══╝   ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝                             //  
+// INPUT VOLUME1
+ignition = input(true, title = "Show volume ignition crosses.") 
+SMAVol = input(20,minval = 1, title = "SMA Volume")
+MGMA_Period = input(14, title = "Ignition period.", minval=1)
+// VOLUME CONFIRMATION OVER MA
+// McGinley Moving Average
+MGMA_Close = na(MGMA_Close[1]) ? ema(close, MGMA_Period) : MGMA_Close[1] + (close - MGMA_Close[1]) / ((MGMA_Period/2) * pow(close/MGMA_Close[1], 4))
+v1 = volume
+v2 = sma(volume, SMAVol)
+ema_alert = ema(close, 9)
+mom = close - close[7]
+//plots - volume ignition
+longignition = ema1 > ema1[1] and sma1 > sma1[1] and hma_1 > hma_2 and mom > 0 and v1 > v2 //long condition
+shortignition = ema1 < ema1[1] and sma1 < sma1[1] and hma_1 < hma_2 and mom < 0 and v1 > v2 //short condition
+long =  if ema1 > ema1[1] and sma1 > sma1[1] or ema_alert > ema_alert[1]
+    if highlight_consolidations == true
+        if hma_1 > hma_2
+            crossover(ema_alert, MGMA_Close) 
+    else
+        if ema1 > ema1[1] and sma1 > sma1[1] or ema_alert > ema_alert[1]
+            if highlight_consolidations == false
+                crossover(ema_alert, MGMA_Close)  
+short = if ema1 < ema1[1] and sma1 < sma1[1] or ema_alert < ema_alert[1]
+    if highlight_consolidations == true
+        if hma_1 < hma_2
+            crossunder(ema_alert, MGMA_Close) 
+    else
+        if ema1 < ema1[1] and sma1 < sma1[1] or ema_alert < ema_alert[1]
+            if highlight_consolidations == false
+                crossunder(ema_alert, MGMA_Close)
+
+plotshape(ignition ? longignition : na, title = "Long Ignition", style = shape.cross,location = location.belowbar, size=size.auto, color = green, transp = 45)
+plotshape(ignition ? shortignition : na, title = "Short Ignition", style = shape.cross,location = location.abovebar, size=size.auto, color = red, transp = 45)
+plotshape(ignition ? long : na, title = 'Long!', style = shape.triangleup, location = location.belowbar, color = green, text = "IGNITION!", size = size.small)
+plotshape(ignition ? short : na, title = 'Short!', style = shape.triangledown, location = location.abovebar, color = red, text = "IGNITION!", size = size.small)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                 //                                                             //
+//██████╗ ██╗ ██████╗ ███╗   ███╗ █████╗ ████████╗ // ████████╗██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗  //
+//██╔══██╗██║██╔════╝ ████╗ ████║██╔══██╗╚══██╔══╝ // ╚══██╔══╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗ //
+//██████╔╝██║██║  ███╗██╔████╔██║███████║   ██║    //    ██║   ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝ //
+//██╔══██╗██║██║   ██║██║╚██╔╝██║██╔══██║   ██║    //    ██║   ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗ //
+//██████╔╝██║╚██████╔╝██║ ╚═╝ ██║██║  ██║   ██║    //    ██║   ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║ //
+//╚═════╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    //    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝ //
+//                                                 //                                                             //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

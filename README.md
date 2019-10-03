@@ -1,6 +1,6 @@
 # Trender
 
-<img src="https://i.postimg.cc/FK3D4Tcc/Trender.png" width="1080">
+<img src="https://i.postimg.cc/mgTPVvND/Trender.png" width="1080">
 
 Trender is an indicator that compiles trend-following ideas in a complete friendly-custom indicator. Based on classic arithmetic moving averages, exponential moving averages, volume and a little bit of Fibonacci.
 Indicator built and usable in TradingView, focused only for easy visualization of the trend. 
@@ -8,8 +8,18 @@ Indicator built and usable in TradingView, focused only for easy visualization o
 - **The GOLD RULE is:**
   - ❇️ Green background: good upward trend 📈. 
   - 🔴 Red background: good downward trend 📉. 
-  - ⚠️ Yellow or too much exchange between green and red: consolidation.  
+  - ⚠️ Yellow or too much exchange between green and red: consolidation. Also there is a better way to work with consolidations using "Highlight Consolidations". See **USAGE**
   
+## Usage
+**Example of a simple approach:**
+- Use colors as a trend indicator. 
+- Use ignition as a moment to pay attention.
+- Use and mark the yellow squares, which are the consolidation highlights, as possible exhaustion, continuation, or figures in price action. For example, rectangles.
+
+<img src="https://i.postimg.cc/QdRxwvc1/Usage.png" width="1080">
+
+If you prefer, follow a completely different way to use it.
+
 ## Installation
 
 ❗️ **This tool works only with TradingView.**

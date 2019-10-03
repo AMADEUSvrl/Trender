@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [Released]
+## [2.0.0] - 2019-10-03
+### Added
+- Two optional EMAs
+- Two optional SMAs
+- Consolidation highlights.
+### Changed
+- Volume Ignition! Now there is a volume crosses and volume ignition!
+- New code format.
+### Removed
+- SMA STOP
+
+
 
 ## [1.0.0] - 2019-09-30
 ### Added

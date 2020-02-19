@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [Released]
+
+
 ## [3.0.0] - 2020-02-19
 ### Added
 - Over 531441 MAs combination.
@@ -14,19 +19,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Indicator themes. Classic, Modern and Pinky
 - Entry lines and Re-Entry lines.
 - Tops and Bottoms finder.
+
 ### Changed
 - Highlight consolidation now based on MAs angle with a better accuracy.
 - Ignition with a new filtered formula firing less signals and showing more profitable ones.
 - New MAs options to customize.
 - TrendColor changed to one MA.
+
 ### Removed
 - Volume Ignition and Volume Crosses.
 - HullMA Highlighter.
 - Highlight consolidation with HullMA.
 
 
-
-## [Released]
 ## [2.0.0] - 2019-10-03
 ### Added
 - Two optional EMAs

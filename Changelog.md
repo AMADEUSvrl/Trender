@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 6 simultaneous MAs
 - Indicator themes. Classic, Modern and Pinky
 - Entry lines and Re-Entry lines.
+- Tops and Bottoms finder.
 ### Changed
 - Highlight consolidation now based on MAs angle with a better accuracy.
 - Ignition with a new filtered formula firing less signals and showing more profitable ones.

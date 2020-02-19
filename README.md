@@ -16,20 +16,25 @@ Indicator built and usable in TradingView, focused only for easy visualization o
 **Example of a simple approach:**
 - Use colors as a trend indicator.
 <p align="center">
-  <img width="460" height="300" src="https://i.postimg.cc/Twp1wS0j/uptrend-gold.png">
+  <img width="1080" src="https://i.postimg.cc/Twp1wS0j/uptrend-gold.png">
 </p>
 
 - Use ignition as a moment to pay attention.
 <p align="center">
-  <img width="460" height="300" src="https://i.postimg.cc/x1s8GnXD/xauusd.png">
+  <img width="1080"  src="https://i.postimg.cc/x1s8GnXD/xauusd.png">
 </p>
 
 - Use and mark the yellow squares, which are the consolidation highlights, as possible exhaustion, continuation, or figures in price action. For example, rectangles.
 <p align="center">
-  <img width="460" height="300" src="https://i.postimg.cc/J4VpmW4L/xauusd.png">
+  <img width="1080" src="https://i.postimg.cc/J4VpmW4L/xauusd.png">
 </p>
 <p align="center">
-  <img width="460" height="300" src="https://i.postimg.cc/FKVx9fz5/xauusd.png">
+  <img width="1080" src="https://i.postimg.cc/FKVx9fz5/xauusd.png">
+</p>
+
+- Use entry line as guide to re-entry or entry at a new price movement when break the entry line.
+<p align="center">
+  <img width="1080" src="https://i.postimg.cc/jjZCRNV7/entryline.png">
 </p>
 
 ## Installation

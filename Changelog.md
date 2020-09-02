@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Highlight consolidations not default anymore.
 - Highlight consolidations now customizable in 3 different types: square, candle and band.
+- Entry lines filters are now considering consolidation and trend direction.
 
 
 ## [3.0.0] - 2020-02-19

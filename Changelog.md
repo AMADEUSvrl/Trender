@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [3.1.0] - 2020-09-02
+
+### Added
+- New consolidation visuals.
+- Candle Highlight consolidations.
+- Band Highlight consolidations.
+- Band ATR based on higher fixed timeframe (daily). Also customizable.
+
+### Changed
+- Highlight consolidations not default anymore.
+- Highlight consolidations now customizable in 3 different types: square, candle and band.
+
 
 ## [3.0.0] - 2020-02-19
 ### Added

@@ -1,3 +1,5 @@
+//@version=2
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //                                                 //                                                             //
@@ -18,75 +20,73 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//  Totally Open Source, built by BigMat, inspired by TrendRider. // TrendRider built by TradeCiety.              //
+//                     Totally Open Source, built by BigMat. I was inspired by works such as:                     //  
 
-//  Structure (colored background by SMA) idea by Trend Rider, TradeCiety.                                        //
+//                                     "TrendRider" by "TradeCiety", Rolf S.                                      //  
 
-
-
-study(title="Trender", shorttitle="Trender", overlay=true)
+//                            "Setup Tabajara" by "Ogro de Wall Street", André Machado                            //  
 
 
 
-// INPUT EMA
-
-emabg = input(true, title = "Show EMA background color.")
-
-ema = input(false, title = "Show EMA.")
-
-// PLOTTED EMA
-
-len1 = input(27, minval = 1, title = "EMA Period")
-
-src1 = input(close, title = "Source")
-
-ma1 = ema(src1, len1)
+study(title = "Trender", shorttitle = "Trender", overlay = true)
 
 
 
-maColor1 = ma1 > ma1[1] and close > ma1 ? green : ma1 < ma1[1] and close < ma1 ? red : yellow
+//                                          ███████╗███╗   ███╗ █████╗                                            //   
 
-plot( ema ? ma1 : na, color = maColor1, style=line, title = "EMA", linewidth=1)
+//                                          ██╔════╝████╗ ████║██╔══██╗                                           //  
 
+//                                          █████╗  ██╔████╔██║███████║                                           //  
 
+//                                          ██╔══╝  ██║╚██╔╝██║██╔══██║                                           // 
 
-// INPUT SMA
+//                                          ███████╗██║ ╚═╝ ██║██║  ██║                                           //  
 
-smabg = input(false, title = "Show SMA background color.") 
+//                                          ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝                                           //  
 
-sma = input(true, title = "Show SMA.")
+// INPUT EMA 1
 
-// PLOTTED SMA
+ema_background_1 = input(true, title = "Show EMA background color.")
 
-len2 = input(20, minval = 1, title = "SMA Period")
+show_ema_1 = input(false, title = "Show EMA.")
 
-src2 = input(close, title = "Source")
+// PLOTTED EMA 1
 
-ma2 = sma(src2, len2)
+per_ema1 = input(27, minval = 1, title = "EMA Period")
 
+src_ema1 = input(close, title = "Source")
 
-
-maColor2 = ma2 > ma2[1] and close > ma2 ? green : ma2 < ma2[1] and close < ma2 ? red : yellow
-
-plot(sma ? ma2 : na, color = maColor2, style = line, title = "SMA", linewidth=1)
-
-
-
-// INPUT SMA STOP
-
-smastop = input(false, title = "Show SMA STOP.")
-
-// PLOTTED SMA STOP
-
-len3 = input(7, minval = 1, title = "SMA STOP Period")
-
-src3 = input(3, title = "SMA Deviation")
-
-ma3 = sma(close[src3], len3)
-
-plot(smastop ? ma3 : na, title = "SMA STOP", color = black , linewidth=1, style = line, transp = 45)
+ema1 = ema(src_ema1, per_ema1)
 
 
 
+ema_Color_1 = ema1 > ema1[1] and close > ema1 ? green : ema1 < ema1[1] and close < ema1 ? red : yellow
 
+plot( show_ema_1 ? ema1 : na, color = ema_Color_1, style = line, title = "EMA 1", linewidth = 1)
+
+
+
+// INPUT EMA 2
+
+show_ema_2 = input(false, title = "Show EMA 2.")
+
+// PLOTTED EMA 2
+
+per_ema2 = input(9, minval = 1, title = "EMA 2 Period")
+
+src_ema2 = input(close, title = "Source")
+
+ema2 = ema(src_ema2, per_ema2)
+
+
+
+ema_Color_2 = ema2 > ema2[1] and close > ema2 ? green : ema2 < ema2[1] and close < ema2 ? red : yellow
+
+plot( show_ema_2 ? ema2 : na, color = ema_Color_2, style = line, title = "EMA 2", linewidth = 1)
+
+
+
+// INPUT EMA 3
+
+show_ema_3 = input(false, title = "Show EMA 3.")
 

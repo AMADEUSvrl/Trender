@@ -428,7 +428,7 @@ basis = ema(close, 9)
 upper1 = basis + (channel_size)
 lower1 = basis - (channel_size)
 
-b1 = plot(basis, color = #FFEB3B, transp = 100)
+b1 = plot(basis, color = #FFEB3B, transp = 100, title = 'Band Basis (EMA9)')
 
 condition_upper = (close > basis) and threshold_filter
 condition_lower = (close < basis) and threshold_filter

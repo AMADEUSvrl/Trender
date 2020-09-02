@@ -119,11 +119,11 @@ consolidation_title0 = input(false, title = "════════ CONSOLIDAT
 highlight_consolidations = input(false, title = 'Square Highlight consolidations.')
 hightlight_candle = input(false, title = 'Candle Highlight consolidations.')
 highlight_band = input(false, title = 'Band Highlight consolidations.')
-band_atr_timeframe = input(title="Band ATR Timeframe", type=input.resolution, defval="D")
-band_atr_length = input(title="Band ATR Length", defval = 14, minval = 1)
-band_atr_size = input(title='Band ATR / Channel Size', defval = float(12))
-band_smoothing = input(title="Band Smoothing", defval="SMA", options=["RMA", "SMA", "EMA", "WMA"])
-slope_type = input(title= 'Slope MA type', defval = 'EMA', options = ['SMA', 'EMA', 'SWMA', 'WMA', 'VWMA', 'RMA', 'ALMA', 'LSMA', 'HMA'])
+band_atr_timeframe = input(title = "Band ATR Timeframe", type=input.resolution, defval="D")
+band_atr_length = input(title = "Band ATR Length", defval = 14, minval = 1)
+band_atr_size = input(title = 'Band ATR / Channel Size', defval = float(12))
+band_smoothing = input(title = "Band Smoothing", defval="SMA", options=["RMA", "SMA", "EMA", "WMA"])
+slope_type = input(title = 'Slope MA type', defval = 'EMA', options = ['SMA', 'EMA', 'SWMA', 'WMA', 'VWMA', 'RMA', 'ALMA', 'LSMA', 'HMA'])
 slope_source = input(title = 'Slope MA Source', defval = close) 
 // slope_threshold = input(defval = 9.4, title = 'Consolidation Slope Threshold', step = 0.1) 
 slope_atr = input(title = 'Slope ATR', defval = 14)
@@ -442,11 +442,11 @@ l1 = plot(highlight_band and condition_lower ? lower1 : na, color = #FFEB3B, tra
 u2 = plot(highlight_band and condition_upper2 ? upper1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles, title = "Upper Band Dots")
 l2 = plot(highlight_band and condition_lower2 ? lower1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles, title = "Lower Band Dots")
 
-fill(b1, u1, color= #FFEB3B, transp=95, title="Upper Band Highlight Consolidation Background ")
-fill(b1, l1, color= #FFEB3B, transp=95, title="Lower Band Highlight Consolidation Background ")
+fill(b1, u1, color= #FFEB3B, transp=95, title = "Upper Band Highlight Consolidation Background ")
+fill(b1, l1, color= #FFEB3B, transp=95, title = "Lower Band Highlight Consolidation Background ")
 
-fill(b1, u2, color= #FFEB3B, transp=99, title="Upper Band Highlight Consolidation Upper 2")
-fill(b1, l2, color= #FFEB3B, transp=99, title="Lower Band Highlight Consolidation Lower 2")
+fill(b1, u2, color= #FFEB3B, transp=99, title = "Upper Band Highlight Consolidation Upper 2")
+fill(b1, l2, color= #FFEB3B, transp=99, title = "Lower Band Highlight Consolidation Lower 2")
 
 barcolor(threshold_filter and hightlight_candle ? #FFFFFF : na, title = 'Candle Highligh Consolidation')
 
@@ -471,7 +471,7 @@ plotshape(show_ignition ? up_trend : na, title = 'Ignition!', style = shape.tria
 plotshape(show_ignition ? down_trend : na, title = 'Ignition!', style = shape.triangledown, location = location.abovebar, color = theme_color_down, size = size.small)
 
 // Possible Entry Lines Rules
-ignition_ema_1 = ema(close, 15) 
+ignition_ema_1 = ema(close, 9) 
 ignition_ema_2 = ema(close, 21)
 ema_status = ignition_ema_1[1] < ignition_ema_1
 
@@ -499,22 +499,22 @@ t_short := min(t_short, time - nz(time[1]))
 y_short = low * 0.99997
 
 // PLOT ENTRY WITH LINE
-if show_possible_entry ? long_92 : na
+if show_possible_entry and (ema(close, 9) > ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? long_92 : na
     line.new(time, y_long, time + t_long, y_long, xloc.bar_time, color = theme_color_up, width = 3)
-if show_possible_entry ? long_93 : na
+if show_possible_entry and (ema(close, 9) > ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? long_93 : na
     line.new(time, y_long, time + t_long, y_long, xloc.bar_time, color = theme_color_up, width = 3)
-if show_possible_entry ? long_94 : na
+if show_possible_entry and (ema(close, 9) > ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? long_94 : na
     line.new(time, y_long, time + t_long, y_long, xloc.bar_time, color = theme_color_up, width = 3)
-if show_possible_entry ? long_21a and long_21b : na
+if show_possible_entry and (ema(close, 9) > ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? long_21a and long_21b : na
     line.new(time, y_long, time + t_long, y_long, xloc.bar_time, color = theme_color_up, width = 3)
     
-if show_possible_entry ? short_92 : na
+if show_possible_entry and (ema(close, 9) < ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? short_92 : na
     line.new(time, y_short, time + t_short, y_short, xloc.bar_time, color = theme_color_down, width = 3)
-if show_possible_entry ? short_93 : na
+if show_possible_entry and (ema(close, 9) < ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? short_93 : na
     line.new(time, y_short, time + t_short, y_short, xloc.bar_time, color = theme_color_down, width = 3)
-if show_possible_entry ? short_94 : na
+if show_possible_entry and (ema(close, 9) < ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? short_94 : na
     line.new(time, y_short, time + t_short, y_short, xloc.bar_time, color = theme_color_down, width = 3)
-if show_possible_entry ? short_21a and short_21b : na
+if show_possible_entry and (ema(close, 9) < ema(close, 15)) and ema(float(abs(ma_slope)), 9) > ema(float(abs(ma_slope)), 15) ? short_21a and short_21b : na
     line.new(time, y_short, time + t_short, y_short, xloc.bar_time, color = theme_color_down, width = 3)
 
 // CONDITIONS TO PLOT ENTRY WITH CHAR

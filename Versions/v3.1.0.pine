@@ -436,19 +436,19 @@ condition_lower = (close < basis) and threshold_filter
 condition_upper2 = (close < basis) and threshold_filter
 condition_lower2 = (close > basis) and threshold_filter
 
-u1 = plot(highlight_band and condition_upper ? upper1 : na, color = #FFEB3B, transp = 100)
-l1 = plot(highlight_band and condition_lower ? lower1 : na, color = #FFEB3B, transp = 100)
+u1 = plot(highlight_band and condition_upper ? upper1 : na, color = #FFEB3B, transp = 100, title = "Upper Band")
+l1 = plot(highlight_band and condition_lower ? lower1 : na, color = #FFEB3B, transp = 100, title = "Lower Band")
 
-u2 = plot(highlight_band and condition_upper2 ? upper1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles)
-l2 = plot(highlight_band and condition_lower2 ? lower1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles)
+u2 = plot(highlight_band and condition_upper2 ? upper1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles, title = "Upper Band Dots")
+l2 = plot(highlight_band and condition_lower2 ? lower1 : na, color = #FFEB3B, transp = 89, style = plot.style_circles, title = "Lower Band Dots")
 
-fill(b1, u1, color= #FFEB3B, transp=95, title="Background Upper")
-fill(b1, l1, color= #FFEB3B, transp=95, title="Background Lower")
+fill(b1, u1, color= #FFEB3B, transp=95, title="Upper Band Highlight Consolidation Background ")
+fill(b1, l1, color= #FFEB3B, transp=95, title="Lower Band Highlight Consolidation Background ")
 
-fill(b1, u2, color= #FFEB3B, transp=99, title="Background Upper 2")
-fill(b1, l2, color= #FFEB3B, transp=99, title="Background Lower 2")
+fill(b1, u2, color= #FFEB3B, transp=99, title="Upper Band Highlight Consolidation Upper 2")
+fill(b1, l2, color= #FFEB3B, transp=99, title="Lower Band Highlight Consolidation Lower 2")
 
-barcolor(threshold_filter and hightlight_candle ? #FFFFFF : na, title = 'Show Theme Color Up Candle')
+barcolor(threshold_filter and hightlight_candle ? #FFFFFF : na, title = 'Candle Highligh Consolidation')
 
 //                                                                                                                                       //   
 //                                        ██╗ ██████╗ ███╗   ██╗██╗████████╗██╗ ██████╗ ███╗   ██╗                                       //   

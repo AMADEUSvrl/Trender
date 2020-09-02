@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//                                                 //                                                             //
+
+//██████╗ ██╗ ██████╗ ███╗   ███╗ █████╗ ████████╗ // ████████╗██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗  //
+
+//██╔══██╗██║██╔════╝ ████╗ ████║██╔══██╗╚══██╔══╝ // ╚══██╔══╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗ //
+
+//██████╔╝██║██║  ███╗██╔████╔██║███████║   ██║    //    ██║   ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝ //
+
+//██╔══██╗██║██║   ██║██║╚██╔╝██║██╔══██║   ██║    //    ██║   ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗ //
+
+//██████╔╝██║╚██████╔╝██║ ╚═╝ ██║██║  ██║   ██║    //    ██║   ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║ //
+
+//╚═════╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    //    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝ //
+
+//                                                 //                                                             //
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  Totally Open Source, built by BigMat, inspired by TrendRider. // TrendRider built by TradeCiety.              //
+
+//  Structure (colored background by SMA) idea by Trend Rider, TradeCiety.                                        //
+
+
+
+study(title="Trender", shorttitle="Trender", overlay=true)
+
+
+
+// INPUT EMA
+
+emabg = input(true, title = "Show EMA background color.")
+
+ema = input(false, title = "Show EMA.")
+
+// PLOTTED EMA
+
+len1 = input(27, minval = 1, title = "EMA Period")
+
+src1 = input(close, title = "Source")
+
+ma1 = ema(src1, len1)
+
+
+
+maColor1 = ma1 > ma1[1] and close > ma1 ? green : ma1 < ma1[1] and close < ma1 ? red : yellow
+
+plot( ema ? ma1 : na, color = maColor1, style=line, title = "EMA", linewidth=1)
+
+
+
+// INPUT SMA
+
+smabg = input(false, title = "Show SMA background color.") 
+
+sma = input(true, title = "Show SMA.")
+
+// PLOTTED SMA
+
+len2 = input(20, minval = 1, title = "SMA Period")
+
+src2 = input(close, title = "Source")
+
+ma2 = sma(src2, len2)
+
+
+
+maColor2 = ma2 > ma2[1] and close > ma2 ? green : ma2 < ma2[1] and close < ma2 ? red : yellow
+
+plot(sma ? ma2 : na, color = maColor2, style = line, title = "SMA", linewidth=1)
+
+
+
+// INPUT SMA STOP
+
+smastop = input(false, title = "Show SMA STOP.")
+
+// PLOTTED SMA STOP
+
+len3 = input(7, minval = 1, title = "SMA STOP Period")
+
+src3 = input(3, title = "SMA Deviation")
+
+ma3 = sma(close[src3], len3)
+
+plot(smastop ? ma3 : na, title = "SMA STOP", color = black , linewidth=1, style = line, transp = 45)
+
+
+
+
+
